@@ -16,7 +16,7 @@
 
         <div class="deptList">
             <div class="charBox" v-for="(value, key) in deptListObject">
-                <h4 class="charTitle">{{key}}</h4>
+                <h4 :id="key" class="charTitle">{{key}}</h4>
                 <ul>
                     <li v-for="(item, index) in value">
                         <router-link :to="{ name: 'reserveDetail', params: { id: item.id }}">

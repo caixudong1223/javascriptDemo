@@ -27,5 +27,15 @@ export default new Router({
       name: 'reserveDetail',
       component: ReserveDetail
     }
-  ]
+  ],
+  mode: 'history',
+  scrollBehavior (to, from, savedPosition){
+    //return desired position
+    if(to.hash){
+      return{
+        selector: to.hash
+      }
+    }
+    
+  }
 })
