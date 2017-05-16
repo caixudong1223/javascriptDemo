@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            text-align: center;
+            font: 700 30px/1.5 arial;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oBody = document.getElementsByTagName('body')[0];
+            var counter = 1;
+            function updateNum(){
+                oBody.innerText = counter++;
+            }
+
+            setInterval(updateNum, 1000);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
