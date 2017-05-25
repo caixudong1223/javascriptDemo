@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>            
+            #div1{
+                width: 100px;
+                height: 100px;
+                background-color: darkred;
+                margin: 10px auto;
+                color: #fff;
+                padding: 10px;
+                border: 5px solid #ccc;
+            }
+            p{
+                text-align: center
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var div1 = document.getElementById("div1");
+                var client = document.getElementById('client');
+                var offset = document.getElementById('offset');
+                var scroll = document.getElementById('scroll');
+
+                client.innerText = "(clientWidth,clientHeight,clientTop,clientLeft) = ("+ div1.clientWidth + " , " + div1.clientHeight+ " , " + div1.clientTop + " , " + div1.clientLeft+")";
+                offset.innerText = "(offsetWidth,offsetHeight,offsetTop,offsetLeft) = ("+ div1.offsetWidth+" , "+div1.offsetHeight+ " , "+div1.offsetTop+" , "+div1.offsetLeft+")";
+                scroll.innerText = "(scrollWidth,scrollHeight,scrollTop,scrollLeft) = ("+ div1.scrollWidth+" , "+ div1.scrollHeight + " , "+ div1.scrollTop + " , "+ div1.scrollLeft+")";
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            asdasdasddddddddsfdsa
+        </div>
+
+        <p id="client"></p>
+        <p id="offset"></p>
+        <p id="scroll"></p>
+    </body>
+</html>
