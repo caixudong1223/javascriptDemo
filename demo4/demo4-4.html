@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        function add() {
+            var args = Array.prototype.slice.call(arguments);
+
+            var fn = function () {
+                var args_fn = Array.prototype.slice.call(arguments);
+                return add.apply(null, args.concat(args_fn));
+            }
+
+            fn.valueOf = function () {
+                return args.reduce(function (a, b) {
+                    return a + b;
+                });
+            }
+        }
+        add(1)(2)(3)
+    </script>
+</head>
+
+<body>
+    <code>
+        add(1)(2) // 3 <br>
+        add(1, 2, 3)(10) // 16 <br>
+        add(1)(2)(3)(4)(5) // 15
+    </code>
+</body>
+
+</html>

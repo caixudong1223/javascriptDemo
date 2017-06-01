@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>满屏 品 字布局</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body{
+                height: 100%;
+            }
+
+            .main{
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: rgba(0,0,0,.1); 
+            }
+
+            .uparea{
+                height: 50%;
+            }
+
+            .up{
+                background-color: red;
+                width: 50%;
+                height: 100%;
+                margin: 0 auto;
+            }
+
+            .downarea{
+                height: 50%;
+                position: relative;
+            }
+
+            .left{
+                background-color: red;
+                width: 48%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .right{
+                background-color: blue;
+                width: 48%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="uparea">
+                <div class="up"></div>
+            </div>
+            <div class="downarea">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>解构url</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        var url = "http://www.domain.com/?user=anonymous&user=caixudong&id=123&id=456&0&id&city=%E5%8C%97%E4%BA%AC&d&enabled&haha";
+        var de_url = decodeURI(url);
+        var temp = de_url.split("?");
+        var param = {}
+        var paramArr = temp[1].split("&");
+        console.log(paramArr);
+        var i;
+        for (i = 0; i < paramArr.length; i++) {
+            var tempArr = paramArr[i].split("=");
+            var key = tempArr[0];
+            var value = tempArr[1] || true;
+
+            if(typeof param[key] === 'undefined'){ //key不存在
+                param[key] = value;
+            }else{
+                var newValue = Array.isArray(param[key]) ? param[key] : [param[key]];
+                newValue.push(value);
+                param[key] = newValue;
+            }
+
+
+
+            // if(!param[tempArr[0]]){
+            //     param[tempArr[0]] = tempArr[1] || true;
+            // }else{
+            //     if(param[tempArr[0]] instanceof Array){
+            //         param[tempArr[0]].push(tempArr[1]);
+            //     }else{
+            //         var val = param[tempArr[0]];
+            //         var arr = [];
+            //         arr.push(val);
+            //         arr.push(tempArr[1]);
+            //         param[tempArr[0]] = arr;
+            //     }
+            // }
+        }
+
+        console.log(param);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
