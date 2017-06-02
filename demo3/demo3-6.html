@@ -47,6 +47,50 @@
             display: inline-block;
             vertical-align: middle;
         }
+        
+        /*.parent {
+            position: relative;
+        }
+        
+        .child {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }*/
+
+        /*.parent{
+            display: flex;
+            justify-content: center;
+        }*/
+
+        /*.child{
+                           
+            display: table;  //display: table 在表现上类似 block 元素，但是宽度为内容宽
+            margin: 0 auto;
+        }*/
+
+        /*.parent{
+            text-align: center;
+        }
+
+        .child{
+            display: inline-block;
+        }*/
+
+        .parent{
+            position: relative;
+            height: 300px;
+            width: 400px;
+            border: 1px solid;
+            margin: 0 auto;
+        }
+
+        .child{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 
@@ -56,10 +100,15 @@
     </div>-->
 
     <!--<div class="center">绝对定位元素水平居中</div>-->
-    
-    <div class="centerBox">
+
+    <!--<div class="centerBox">
         <div class="inner">父元素高度固定的情况下,块级元素垂直居中对齐</div>
+    </div>-->
+
+    <div class="parent">
+        <div class="child">Demo</div>
     </div>
+
 </body>
 
 </html>

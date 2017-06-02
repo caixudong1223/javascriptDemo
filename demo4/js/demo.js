@@ -159,29 +159,57 @@ var isPrime2 = (function () {//hash
 
 
 var request = new XMLHttpRequest();
-request.onreadystatechange = function(){
-    if(request.readyState === 4){ //成功完成
+request.onreadystatechange = function () {
+    if (request.readyState === 4) { //成功完成
         //判断响应结果
-        if(request.status === 200){
+        if (request.status === 200) {
             // 成功，通过responseText拿到响应的文本:
-        }else{
+        } else {
             //失败，根据响应码判断失败原因:
         }
-    } else{
+    } else {
         // HTTP请求还在继续...
     }
 }
 
 request.open("POST", url, true);
-request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 request.send();
-  // readyState值说明
-  // 0,初始化,XHR对象已经创建,还未执行open
-  // 1,载入,已经调用open方法,但是还没发送请求
-  // 2,载入完成,请求已经发送完成
-  // 3,交互,可以接收到部分数据
+// readyState值说明
+// 0,初始化,XHR对象已经创建,还未执行open
+// 1,载入,已经调用open方法,但是还没发送请求
+// 2,载入完成,请求已经发送完成
+// 3,交互,可以接收到部分数据
 
-  // status值说明
-  // 200:成功
-  // 404:没有发现文件、查询或URl
-  // 500:服务器产生内部错误
+// status值说明
+// 200:成功
+// 404:没有发现文件、查询或URl
+// 500:服务器产生内部错误
+
+
+//数组去重
+function method1(arr) { //遍历数组法
+    var newarr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (newarr.indexOf(arr[i]) != -1) {
+            newarr.push(arr[i]);
+        }
+    }
+    return newarr;
+}
+
+
+function method2(arr) { // hash 去重法
+    var _arr = [],
+        hash = {}
+    for (var i = 0; i < arr.length; i++) {
+        var item = arr[i];
+        var key = typeof (item) + item; // 对象的键值只能是字符串, typeof(item) + item来去分1和'1'的情况
+        console.log(key);
+        if (hash[key] !== 1) {
+            _arr.push(item);
+            hash[key] = 1;
+        }
+    }
+    return _arr;
+}
