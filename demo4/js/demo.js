@@ -213,3 +213,50 @@ function method2(arr) { // hash 去重法
     }
     return _arr;
 }
+
+//判断属性是原型中的属性
+function hasPrototypeProperty(object, name){
+    return !object.hasOwnProperty(name) && name in object;
+}
+
+
+//组合使用构造函数模式和原型模式
+function Person(name, age, job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.friends = ['aa','bb'];
+}
+
+Person.prototype = {
+    constructor: Person,
+    sayName: function(){
+        alert(this.name);
+    }
+}
+
+// 动态原型模式
+function Person(name, age, job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    if(typeof this.sayName != "function"){//sayname方法不存在的情况下，将它添加到原型中
+        Person.prototype.sayName = function(){
+            alert(this.name);
+        }
+    }
+}
+
+function SpecialArray(){
+    var values = new Array();
+
+    values.push.apply(values ,arguments);
+
+    values.toPipedString = function(){
+        return this.join("|");
+    }
+
+    return values;
+}
+
+
